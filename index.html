@@ -59,6 +59,61 @@
     .featured-tag{position:absolute;right:10px;top:10px;background:#fff1b7;color:#765300;border-radius:999px;padding:5px 8px;font-size:10px;font-weight:900;box-shadow:0 3px 10px #0001}.mini-address{max-width:220px;white-space:normal;line-height:1.4}.receipt-card{margin-top:12px;border-top:1px dashed var(--line);padding-top:10px}.danger-link{border:0;background:transparent;color:#b33d3d;font-weight:800;font-size:11px;padding:4px 0}.auth-required-note{font-size:11px;color:var(--muted);margin-top:12px;text-align:center}.premium-insights{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:12px}
     @media(max-width:720px){.fee-policy,.premium-insights,.fulfillment-grid,.otp-actions{grid-template-columns:1fr}}
 
+
+    /* Vercel-ready responsive patch: desktop, tablet, phone, portrait and landscape */
+    html,body{width:100%;max-width:100%;overflow-x:hidden}
+    body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+    .screen,.market-layout,.market-main,.dash-shell,.dash-main,.dash-content,.panel-card,.modal,.auth-shell{min-width:0}
+    input,select,textarea,button{max-width:100%}
+    .table-wrap{width:100%;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+    .data-table{width:100%}
+    .modal-backdrop{padding:max(10px,env(safe-area-inset-top)) max(10px,env(safe-area-inset-right)) max(10px,env(safe-area-inset-bottom)) max(10px,env(safe-area-inset-left))}
+    .modal{max-height:min(92dvh,920px);overscroll-behavior:contain}
+    .market-sidebar,.dash-sidebar{overflow-y:auto;overscroll-behavior:contain}
+    .mobile-nav{padding-bottom:max(7px,env(safe-area-inset-bottom))}
+    .dash-content,.market-main{padding-left:max(14px,env(safe-area-inset-left));padding-right:max(14px,env(safe-area-inset-right))}
+    .product-grid{grid-template-columns:repeat(auto-fit,minmax(min(230px,100%),1fr))}
+    .farmer-grid{grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr))}
+    .category-row{grid-template-columns:repeat(auto-fit,minmax(130px,1fr))}
+    .metric-grid,.admin-stat-grid{grid-template-columns:repeat(auto-fit,minmax(165px,1fr))}
+    .quick-grid{grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+    @media(max-width:900px){
+      .dash-shell{grid-template-columns:72px minmax(0,1fr)}
+      .dash-topbar{min-height:64px;height:auto;padding-top:8px;padding-bottom:8px}
+      .dash-content{padding-bottom:calc(20px + env(safe-area-inset-bottom))}
+    }
+    @media(max-width:720px){
+      .top-actions{gap:6px}.icon-btn{min-width:38px;height:38px}
+      .hero{min-height:230px}.hero-content{padding:24px 20px}.hero h1{font-size:clamp(28px,8vw,36px)}
+      .section-head{align-items:flex-start;flex-direction:column;gap:8px}
+      .product-actions{grid-template-columns:1fr}.product-actions .btn{width:100%}
+      .dash-shell{display:block}.dash-sidebar{position:static;height:auto;display:flex;flex-direction:row;overflow-x:auto;overflow-y:hidden;padding:8px;gap:5px;white-space:nowrap}
+      .dash-sidebar .logo-lockup,.dash-profile,.dash-sidebar .spacer,.dash-sidebar .premium-side{display:none!important}
+      .dash-nav{flex:0 0 auto;justify-content:center;font-size:12px;padding:10px 12px;margin:0}.dash-nav span.label{display:inline!important}
+      .dash-topbar{position:sticky;top:0;z-index:34}
+      .metric-grid,.quick-grid,.admin-stat-grid{grid-template-columns:1fr 1fr}
+      .auth-shell{min-height:0}.auth-visual{min-height:150px}.auth-form-area{padding:20px}
+      .role-tabs{grid-template-columns:repeat(3,minmax(0,1fr))}.role-tab{padding:8px 4px;font-size:11px}
+      .receipt-row{align-items:flex-start}.receipt-row span:last-child{text-align:right}
+    }
+    @media(max-width:520px){
+      .topbar{padding-left:10px;padding-right:10px}.topbar .logo-text strong{font-size:15px}.topbar .logo-mark{width:34px;height:34px}
+      .market-main{padding-left:12px;padding-right:12px;padding-bottom:100px}
+      .category-row,.metric-grid,.quick-grid,.admin-stat-grid{grid-template-columns:1fr}
+      .hero-content{padding:22px 18px}.hero p{font-size:14px}
+      .mobile-nav{left:6px;right:6px;bottom:6px}
+      .modal-backdrop{align-items:flex-end;padding:0}.modal{width:100%;max-height:94dvh;border-radius:20px 20px 0 0}
+      .modal.small,.modal.large{width:100%}.modal-head{padding:14px 16px}.modal-body{padding:14px}
+      .auth-visual{display:none}.auth-form-area{padding:18px 16px}
+      .cart-item{grid-template-columns:52px minmax(0,1fr)}.cart-item img{width:52px;height:52px}.qty-ctrl{grid-column:2}
+      .store-profile{align-items:flex-start}.store-stats{display:grid;grid-template-columns:1fr 1fr;width:100%}
+    }
+    @media(max-height:520px) and (orientation:landscape){
+      .modal-backdrop{align-items:flex-start;padding:6px}.modal{max-height:calc(100dvh - 12px);border-radius:14px}
+      .auth-shell{grid-template-columns:34% 66%;min-height:0}.auth-visual{display:flex;min-height:0;padding:18px}.auth-visual h2{font-size:22px}.auth-form-area{padding:16px 18px}
+      .dash-sidebar{position:static;height:auto}.dash-topbar{position:sticky;top:0}.hero{min-height:210px}.hero-content{padding:20px 24px}.hero h1{font-size:30px}
+    }
+
   </style>
 </head>
 <body>
@@ -316,7 +371,7 @@
   const fallbackImage='https://images.unsplash.com/photo-1500595046743-cd271d694d30?auto=format&fit=crop&w=900&q=80';
   const statuses=['Order Received','Confirmed','Preparing','Ready for Pickup/Delivery','Completed'];
   let selectedRole='consumer', authMode='login', activeCategory='all', activeProductId=null, incomePeriod='weekly', farmerSalesPeriod='daily', adminSalesPeriod='daily';
-  let otpVerified=false, verifiedEmail='', otpChallenge='', localOtp=null;
+  let otpVerified=false, verifiedEmail='', otpChallenge='';
 
   function addDaysISO(value,days){const d=new Date(value);d.setDate(d.getDate()+days);return d.toISOString()}
   function seedDB(){
@@ -409,9 +464,44 @@
   function renderConsumerOrders(){const u=currentUser();if(!u||u.role!=='consumer'){$('consumerOrders').innerHTML='<div class="empty-state">Login as a consumer to view orders.</div>';return}const orders=db.orders.filter(o=>o.buyerId===u.id).sort((a,b)=>new Date(b.date)-new Date(a.date));$('consumerOrders').innerHTML=orders.length?orders.map(o=>`<div class="order-card"><div class="order-head"><div><div class="order-id">Order #${esc(o.id)}</div><div class="order-date">${new Date(o.date).toLocaleString('en-PH')}</div></div>${statusPill(o.status)}</div>${o.status==='Cancelled'?'':renderTrack(o.status)}<div class="form-note"><strong>Payment:</strong> ${esc(o.payment)}<br><strong>Fulfillment:</strong> ${esc(o.fulfillment||'Delivery')} ${o.fulfillment==='Pickup'?'(no shipping fee)':`• Shipping ${money(o.shippingFee)}`}<br><strong>Consumer Address:</strong> ${esc(o.address)}</div><div style="margin-top:10px">${(o.items||[]).map(i=>`<div style="display:flex;justify-content:space-between;font-size:12px;padding:4px 0"><span>${esc(i.name)} × ${i.qty}</span><strong>${money(i.qty*i.price)}</strong></div>`).join('')}</div>${receiptHTML(o)}${canCancelOrder(o)?`<button class="btn btn-danger btn-sm" style="margin-top:10px" data-cancel-order="${o.id}">Cancel Order • ${money(CANCELLATION_FEE)} fee</button>`:''}</div>`).join(''):'<div class="empty-state">You have no orders yet.</div>';document.querySelectorAll('[data-cancel-order]').forEach(b=>b.onclick=()=>cancelOrder(b.dataset.cancelOrder))}
   function renderTrack(status){let idx=statuses.indexOf(status);if(idx<0)idx=0;return `<div class="track">${statuses.map((s,i)=>`<div class="track-step ${i<=idx?'done':''}"><div class="track-dot">${i<=idx?'✓':i+1}</div>${esc(s)}</div>`).join('')}</div>`}
 
-  function resetOtp(){otpVerified=false;verifiedEmail='';otpChallenge='';localOtp=null;if($('otpStatus')){$('otpStatus').className='otp-status';$('otpStatus').textContent='Email verification is required before account creation.'}}
-  async function sendRegistrationOtp(){const email=$('regEmail').value.trim().toLowerCase();if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))return authError('Enter a valid email before requesting an OTP.');resetOtp();$('otpStatus').className='otp-status warn';$('otpStatus').textContent='Sending OTP...';try{const r=await fetch('/.netlify/functions/send-otp',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email})});if(!r.ok)throw new Error('OTP service unavailable');const data=await r.json();otpChallenge=data.challenge||'';if(!otpChallenge)throw new Error('No challenge returned');$('otpStatus').className='otp-status ok';$('otpStatus').textContent=`OTP sent to ${email}. It expires in 10 minutes.`;toast('Verification OTP sent to your email.')}catch(err){const code=String(Math.floor(100000+Math.random()*900000));localOtp={email,code,expires:Date.now()+10*60*1000};$('otpStatus').className='otp-status warn';$('otpStatus').textContent=`Demo OTP mode: ${code} (email service is not configured on this host).`;toast('Demo OTP generated. Configure the included Netlify email function for live email delivery.')}}
-  async function verifyRegistrationOtp(){const email=$('regEmail').value.trim().toLowerCase(),otp=$('regOtp').value.trim();if(!/^\d{6}$/.test(otp))return authError('Enter the 6-digit OTP.');try{if(otpChallenge){const r=await fetch('/.netlify/functions/verify-otp',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,otp,challenge:otpChallenge})});if(!r.ok)throw new Error((await r.json().catch(()=>({}))).error||'Invalid OTP');}else{if(!localOtp||localOtp.email!==email||Date.now()>localOtp.expires||localOtp.code!==otp)throw new Error('Invalid or expired demo OTP.');}otpVerified=true;verifiedEmail=email;$('otpStatus').className='otp-status ok';$('otpStatus').textContent=`✓ ${email} verified.`;$('authError').classList.remove('show');toast('Email verified successfully.')}catch(err){otpVerified=false;verifiedEmail='';authError(err.message||'OTP verification failed.')}}
+  function resetOtp(){otpVerified=false;verifiedEmail='';otpChallenge='';if($('otpStatus')){$('otpStatus').className='otp-status';$('otpStatus').textContent='Email verification is required before account creation.'}}
+  async function sendRegistrationOtp(){
+    const email=$('regEmail').value.trim().toLowerCase();
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))return authError('Enter a valid email before requesting an OTP.');
+    resetOtp();
+    const btn=$('sendOtpBtn');
+    const old=btn.textContent;
+    btn.disabled=true;btn.textContent='Sending...';
+    $('otpStatus').className='otp-status warn';$('otpStatus').textContent='Sending a real verification code to your email...';
+    try{
+      const r=await fetch('/api/send-otp',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email})});
+      const data=await r.json().catch(()=>({}));
+      if(!r.ok)throw new Error(data.error||'Unable to send OTP.');
+      otpChallenge=data.challenge||'';
+      if(!otpChallenge)throw new Error('OTP service did not return a verification challenge.');
+      $('otpStatus').className='otp-status ok';$('otpStatus').textContent=`OTP sent to ${email}. Check your inbox or spam folder. It expires in 10 minutes.`;
+      $('authError').classList.remove('show');toast('Verification OTP sent to your email.');
+    }catch(err){
+      otpChallenge='';
+      $('otpStatus').className='otp-status warn';$('otpStatus').textContent='Email OTP service is unavailable. Please try again or contact FINANIHAN support.';
+      authError(err.message||'Unable to send OTP.');
+    }finally{btn.disabled=false;btn.textContent=old;}
+  }
+  async function verifyRegistrationOtp(){
+    const email=$('regEmail').value.trim().toLowerCase(),otp=$('regOtp').value.trim();
+    if(!/^\d{6}$/.test(otp))return authError('Enter the 6-digit OTP.');
+    if(!otpChallenge)return authError('Request a new OTP first.');
+    const btn=$('verifyOtpBtn');const old=btn.textContent;btn.disabled=true;btn.textContent='Verifying...';
+    try{
+      const r=await fetch('/api/verify-otp',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,otp,challenge:otpChallenge})});
+      const data=await r.json().catch(()=>({}));
+      if(!r.ok)throw new Error(data.error||'Invalid OTP');
+      otpVerified=true;verifiedEmail=email;
+      $('otpStatus').className='otp-status ok';$('otpStatus').textContent=`✓ ${email} verified.`;
+      $('authError').classList.remove('show');toast('Email verified successfully.');
+    }catch(err){otpVerified=false;verifiedEmail='';authError(err.message||'OTP verification failed.');}
+    finally{btn.disabled=false;btn.textContent=old;}
+  }
   function openAuth(mode='login',role='consumer'){authMode=mode;selectedRole=role;document.querySelectorAll('[data-login-role]').forEach(b=>b.classList.toggle('active',b.dataset.loginRole===role));document.querySelectorAll('[data-auth-mode]').forEach(b=>b.classList.toggle('active',b.dataset.authMode===mode));$('loginForm').classList.toggle('hidden',mode!=='login');$('registerForm').classList.toggle('hidden',mode!=='register');$('farmNameField').classList.toggle('hidden',selectedRole!=='farmer');$('authError').classList.remove('show');if(mode==='register'&&selectedRole==='admin'){selectedRole='consumer';document.querySelectorAll('[data-login-role]').forEach(b=>b.classList.toggle('active',b.dataset.loginRole==='consumer'));}if(mode==='register')resetOtp();openModal('authModal')}
   function authError(msg){$('authError').textContent=msg;$('authError').classList.add('show')}
   function login(e){e.preventDefault();const email=$('loginEmail').value.trim().toLowerCase(),password=$('loginPassword').value;const u=db.users.find(x=>x.email.toLowerCase()===email&&x.role===selectedRole);if(!u)return authError('No matching account was found for this role.');if(u.active===false)return authError('This account is inactive.');if(u.password!==password)return authError('Incorrect password.');setSession(u);closeModal('authModal');$('loginForm').reset();toast(`Welcome, ${u.name}!`);if(u.role==='farmer')showScreen('farmer');else if(u.role==='admin')showScreen('admin');else showScreen('market')}

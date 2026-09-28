@@ -90,3 +90,18 @@ The code expires after 10 minutes.
 
 ## Important
 The email OTP is server-side, but the rest of the current FINANIHAN data is still stored in browser localStorage. For a true shared online marketplace across devices, move users, products, orders, sales, addresses, and subscriptions to a shared database later.
+
+
+## UI update: SVG icons and responsive layout
+
+This build replaces emoji-based interface icons with an inline SVG icon system. No external icon CDN is required. It also includes phone-first responsive overrides for small phones, large phones, tablets, desktop screens, portrait mode, and landscape mode.
+
+After replacing the files in your GitHub repository, run:
+
+```powershell
+git add .
+git commit -m "Replace emoji icons with SVG and improve mobile responsiveness"
+git push
+```
+
+Vercel will redeploy automatically when the GitHub repository is connected.
